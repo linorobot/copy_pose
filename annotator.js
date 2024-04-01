@@ -107,7 +107,6 @@ function mouseEvents(canvas, ctx, img) {
             const x = firstPos.x.toFixed(3);
             const y = firstPos.y.toFixed(3);
             const yaw = calculateOrientation(firstPos, secondPos);
-        
 
             yaw_px = calculateOrientation(firstClick, secondClick);
             end_x = firstClick.x + ((1.5 / globalYamlData.resolution) * Math.cos(yaw_px));
@@ -117,7 +116,7 @@ function mouseEvents(canvas, ctx, img) {
             firstClick = null;
             secondClick = null;
 
-            const poseString = `x: ${x}, y: ${y}, yaw: ${yaw.toFixed(4)}`;
+            const poseString = `[${x}, ${y}, ${yaw.toFixed(4)}]`;
             navigator.clipboard.writeText(`{ ${poseString} }`);
 
             showToast(`${poseString} added to clipboard!`);
