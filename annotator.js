@@ -89,6 +89,10 @@ function mouseEvents(canvas, ctx, img) {
         const posY = ((img.height - clickPos.y) * globalYamlData.resolution) + globalYamlData.origin[1];
 
         if (firstClick === null) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            drawAxis(ctx, globalYamlData.resolution, globalYamlData.origin, img.width, img.height);
+
             firstClick = clickPos;
             firstPos = {
                 x: posX,
@@ -128,6 +132,7 @@ function mouseEvents(canvas, ctx, img) {
         if (firstClick !== null && secondClick === null) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            drawAxis(ctx, globalYamlData.resolution, globalYamlData.origin, img.width, img.height);
 
             const rect = canvas.getBoundingClientRect();
             const mouseX = event.clientX - rect.left;
@@ -142,7 +147,6 @@ function mouseEvents(canvas, ctx, img) {
             end_y = firstClick.y + ((1.5 / globalYamlData.resolution) * Math.sin(yaw_px))
 
             drawArrow(ctx, firstClick,  {x: end_x, y: end_y}, 'blue');
-            drawAxis(ctx, globalYamlData.resolution, globalYamlData.origin, img.width, img.height);
         }
     });
 }
