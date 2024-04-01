@@ -116,8 +116,8 @@ function mouseEvents(canvas, ctx, img) {
             firstClick = null;
             secondClick = null;
 
-            const poseString = `[${x}, ${y}, ${yaw.toFixed(4)}]`;
-            navigator.clipboard.writeText(`{ ${poseString} }`);
+            const poseString = `${x}, ${y}, ${yaw.toFixed(4)}`;
+            navigator.clipboard.writeText(`[${poseString}]`);
 
             showToast(`${poseString} added to clipboard!`);
             console.log(`{${x}, ${y}, ${yaw}}`);
