@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Pose Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js-yaml.min.js"></script>
+
+</head>
+<body>
+    <div id="drop_area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+        <p>Drag map image and yaml file here ...</p>
+    </div>
+    <div id="toast" class="toast"></div>
+
+    <script src="annotator.js"></script>
+</body>
+</html>
